@@ -1,0 +1,74 @@
+<app-menu></app-menu>
+<div style="text-align: center;">
+  <h5>Actualizar Publicacion</h5>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" >
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <div style="text-align: center;">
+          <p style="font-size: 200%;  font-weight: 700;">  {{ msg }} </p>
+        </div>
+        <img src="../../../assets/update.gif"  style="width: 40%; height: 40%; position: relative; left: 30%;" alt="">
+      </div>
+      <a href="guia/profile" type="button" class="btn btn-primary">Continuar <i class="fas fa-check fa-md"></i></a>
+    </div>
+  </div>
+</div>
+
+
+
+<body>
+  <br>
+  <div class="container">
+    <div class="row ">
+
+      <br>
+      <div class="col-sm-12 col-lg-4">
+        <body class="body" style="background-color: rgb(255, 255, 255); position: relative; top: 10%;"  >
+          <img  [src]="'http://localhost:8000/'+posts.photo"  alt="">
+        </body>
+        <br>
+        <br>
+      </div>
+      <div class="col-sm-12 col-lg-4">
+        <div class="container">
+          <div class="row"  >
+            <form >
+              <div class="row">
+                <div class="col-sm-6 col-lg-12">
+                  <label for="" style="font-weight: 600; color: #0D924A">Lugar :</label>
+                  <input type="text" class=" form-control " [ngModelOptions]="{standalone: true}" [(ngModel)]="posts.title" placeholder="Titulo de la Imagen" >
+                  <br>
+                </div>
+
+                <div class="col-sm-6 col-lg-12">
+                  <label for="" style="font-weight: 600; color: #0D924A">Ubicacion :</label>
+                  <input type="text" class=" form-control "  [ngModelOptions]="{standalone: true}" [(ngModel)]="posts.address" placeholder="Direccion del Lugar" >
+                  <br>
+                </div>
+
+                <div class="col-sm-6 col-lg-12">
+                  <label style="font-weight: 600; color: #0D924A">Descripcion</label>
+                  <textarea type="text" placeholder="Hablanos un poco de ti!!!"  [ngModelOptions]="{standalone: true}" [(ngModel)]="posts.description"
+                    class="form-control" rows="3"></textarea>
+                  <br>
+                </div>
+              </div>
+              <button type="submit" (click)="updatePost()"
+               class="btn btn-outline-primary btn-lg btn-block "
+               data-toggle="modal" data-target="#exampleModalCenter"
+               > Actualizar </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-lg-4">
+
+      </div>
+    </div>
+  </div>
+  <br>
+</body>

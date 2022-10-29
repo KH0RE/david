@@ -1,0 +1,26 @@
+body{margin-top:20px;
+  background:rgb(228, 228, 228);
+  }
+
+  img {
+    height: 240px;
+    padding: 15px;
+    width: 350px;
+  }
+
+  .body{
+    height: 240px;
+  }
+
+
+  @media (max-width: 1024px) {
+
+    img {
+      height: 200px;
+      width: 325px;
+      padding: 15px;
+    }
+    .body{
+      height: 200px;
+    }
+   }

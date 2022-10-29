@@ -1,0 +1,16 @@
+img {
+  height: 75vh;
+}
+
+.card {
+  opacity: 0.8;
+}
+
+
+@media (max-width: 1024px) {
+
+  .carusel {
+    display: none;
+  }
+
+}

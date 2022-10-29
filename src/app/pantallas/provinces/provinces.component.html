@@ -1,0 +1,59 @@
+<app-menu></app-menu>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <div style="background-image: url(../../../assets/fondo.jpg); height: 30vh; opacity: 0.9; "
+        class="page-holder bg-cover">
+        <div class="row">
+
+          <div class="col-md-12">
+            <div style="text-align: center; margin-top: 60px; color: white; ">
+              <h1 class="titlePrincipal"> <i class="fas fa-map-marker-alt"></i> {{ provinces.name }}</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container">
+  <div style="text-align: center;">
+    <h3>Galería</h3>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-6" *ngFor="let datos of posts" >
+      <div class="card mb-3"  style="border-top: none;
+      border-left: none; border-radius: 5%;
+      box-shadow: 15px 12px 15px rgb(143, 143, 143);" >
+        <div class="row g-0">
+          <div class="col-md-6">
+            <img
+            [src]="'http://localhost:8000/'+datos.photo"
+              alt="..."
+              class="img-fluid"
+              style="height: 100%;"
+            />
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h6 style="color: rgb(92, 92, 92); font-weight: 600;" class="card-title"> <i class="fas fa-place-of-worship"></i> Lugar  </h6>
+              <p class="title">{{ datos.title }}</p>
+              <h6 style="color: rgb(92, 92, 92); font-weight: 600; " > <i class="fas fa-map-marked-alt"></i> Provincia   </h6>
+              <p style="font-weight: 600; margin-left: 5%;" >{{ provinces.name }}</p>
+              <h6 style="color: rgb(92, 92, 92); font-weight: 600;"> <i class="fas fa-pager"></i> Descripcion </h6>
+              <p style="margin-left: 5%;" class="card-text">
+                {{ datos.description }}
+              </p>
+              <h6 style="color: rgb(92, 92, 92); font-weight: 600; " > <i class="fas fa-map-marker-alt"></i> Ubicación </h6>
+              <p style="margin-left: 5%;">{{ datos.address }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

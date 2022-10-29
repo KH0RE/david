@@ -1,0 +1,178 @@
+<app-menu></app-menu>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-8 col-lg-6">
+        <!-- Section Heading-->
+        <div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+            <div class="row">
+              <div class="col-md-8">
+                <h3>Perfil </h3>
+              </div>
+              <div class="col-md-2"></div>
+              <div class="col-md-2">
+                <div  class="actualizar">
+                  <button class="btn btn-success "   data-toggle="modal" data-target="#exampleModal" > <i class="fas fa-user-plus"></i> Crear Perfil</button>
+                </div>
+              </div>
+            </div>
+
+
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Single Advisor-->
+      <div class="col-12 col-lg-3" *ngFor="let profile of profiles" >
+        <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+          <!-- Team Thumb-->
+          <div class="advisor_thumb"><img class="img" [src]="'http://localhost:8000/'+profile.photo" alt="">
+            <!-- Social Info-->
+            <div class="social-info"><a style="cursor: pointer;"><i class="fab fa-facebook-square"></i></a><a style="cursor: pointer;"><i class="fab fa-instagram"></i></a><a style="cursor: pointer;"><i class="fab fa-twitter-square"></i></a></div>
+          </div>
+          <!-- Team Details-->
+          <div class="single_advisor_details_info">
+            <h4>{{ user.name }}</h4>
+            <p class="designation">{{ profile.description }}</p>
+            <br>
+            <div  class="actualizar">
+            <!--  <button class="btn btn-primary " data-toggle="modal" data-target="#exampleModal" title="{{ profile.id }}"  > <i class="fas fa-user-edit"></i> Actualizar Perfil</button>-->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Crear Perfil</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                  <div class="row">
+                    <form  [formGroup]="imageForm" (ngSubmit)="onSubmit()" >
+
+                        <div class="row">
+                          <div class="col-sm-6 col-lg-12">
+                            <div class="input-file">
+                              <input type="file"
+                                      placeholder="File"
+                                      (change)="onFileChange($event)"
+                                      formControlName="file">
+                               <img style="width: 50%; height: 50%; position: relative; left: 25%;" *ngIf="image" class="img-fluid img-thumbnail image" [src]="image" alt="">
+                             </div>
+                          </div>
+                          <div class="col-sm-6 col-lg-12">
+                            <label >Descripcion</label>
+                          <textarea  type="text" placeholder="Hablanos un poco de ti!!!" formControlName="description" class="form-control" rows="3" ></textarea>
+                          <br>
+                          </div>
+                        </div>
+                      <button type="submit" class="btn btn-outline-primary btn-lg btn-block "
+                      data-toggle="modal" data-target="#exampleModalCenter"
+                      [disabled]="!imageForm.valid"
+                        > Crear </button>
+                    </form>
+                  </div>
+                </div>
+            </div>
+           <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>-->
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+          <div class="modal-content">
+
+            <div class="modal-body">
+              <div style="text-align: center;">
+                <p style="font-size: 200%;  font-weight: 700;">  {{ msg }} </p>
+              </div>
+              <img src="../../../assets/listo.gif"  style="width: 40%; height: 40%; position: relative; left: 30%;" alt="">
+            </div>
+            <a href="guia/profile" type="button" class="btn btn-success">Continuar <i class="fas fa-check fa-md"></i></a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="exampleModalCenterDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+          <div class="modal-content">
+
+            <div class="modal-body">
+              <div style="text-align: center;">
+                <p style="font-size: 200%;  font-weight: 700;">  {{ borrar }} </p>
+              </div>
+              <img src="../../../assets/delete.gif"  style="width: 40%; height: 40%; position: relative; left: 30%; border-radius: 50%;" alt="">
+            </div>
+            <a href="guia/profile" type="button" class="btn btn-info">Continuar <i class="fas fa-trash-alt fa-md"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12  col-lg-9">
+        <div class="row">
+          <div class="col-md-4 col-sm-12" style="padding: 10px;" *ngFor="let item of posts" >
+            <div class="card" style="border-radius: 15px;" >
+              <img
+              [src]="'http://localhost:8000/'+item.photo"
+                class="card-img-top"
+                style="height: 200px; border-radius: 15px;"
+              />
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-10 ">
+                    <h5 class="card-title"> <i class="fas fa-place-of-worship"></i> {{ item.title }} </h5>
+                  </div>
+                  <div class="col-lg-2 ">
+                    <div class="dropdown">
+                      <a style="cursor: pointer; " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-caret-down"></i>
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item"
+                          style="cursor: pointer;"
+                        (click)="selectPost(item.id)" > <i class="fas fa-edit"></i> Actualizar</a>
+                        <a class="dropdown-item" style="cursor: pointer;"
+                        data-toggle="modal" data-target="#exampleModalCenterDelete"
+                        (click)="delete(item.id)"  > <i class="fas fa-trash"></i> Eliminar</a>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h6 style="color: rgb(92, 92, 92); font-weight: 600;"> <i class="fas fa-pager"></i> Descripcion </h6>
+                <p class="card-text">
+
+                {{ item.description }}
+                </p>
+                <h6 style="color: rgb(92, 92, 92); font-weight: 600; " > <i class="fas fa-map-marker-alt"></i> Ubicación </h6>
+                <p class="card-text">
+                  {{ item.address }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</body>
+
+

@@ -1,0 +1,24 @@
+
+
+<nav style="background-color: rgb(20, 156, 72);" class="navbar navbar-expand-lg sticky-top">
+  <a style="color: rgb(255, 255, 255);"  class="navbar-brand" (click)="home()" ><i class="fas fa-home"></i> Guia - Ecu</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <!--<ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+    </ul>-->
+    <div class="col-md-8" ></div>
+    <div class="col-md-2" > <a  (click)="profile()" style="cursor: pointer; color: rgb(255, 255, 255);" ><i class="fas fa-user fa-lg"></i> {{ user.name }} </a> </div>
+    <div class="col-md-2" > <a (click)="salir()" style="cursor: pointer; color: rgb(255, 255, 255);" > <i  class="fas fa-sign-out-alt fa-lg"></i> Salir</a>  </div>
+  </div>
+</nav>

@@ -1,0 +1,35 @@
+body {
+  font: 400 15px Lato, sans-serif;
+  line-height: 1.8;
+  color: #818181;
+}
+
+
+
+.titlePrincipal {
+  font-size: 80px;
+}
+
+.description {
+  font-size: 20px;
+  font-weight: 700;
+}
+.title{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 150%;
+  margin-left: 5%;
+}
+
+
+
+@media (max-width: 1024px) {
+
+  .titlePrincipal  {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
